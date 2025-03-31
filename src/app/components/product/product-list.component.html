@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Product Batches</h2>
+
+    <div style="margin: 1em;">
+        <a [routerLink]="['/products/add-batch']">Register new</a>
+    </div>
+    
+
+    <div class="flex">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search by Product ID or Batch Number" />
+        <button (click)="onSearch()">Search</button>
+    </div>
+   
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Batch Number</th>
+          <th>Product ID</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let batch of batches">
+          <td>{{ batch.batchNumber }}</td>
+          <td>{{ batch.id }}</td>
+          <td>{{ batch.description }}</td>
+          <td>${{ batch.price }}</td>
+          <td>{{ batch.registered | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

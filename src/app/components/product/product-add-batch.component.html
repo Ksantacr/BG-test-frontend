@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Add Batch to Product</h2>
+
+    <div style="margin: 1em;">
+        <a [routerLink]="['/products']">List products</a>
+    </div>
+  
+    <label>Product:</label>
+    <select [(ngModel)]="selectedProductId">
+      <option *ngFor="let product of products" [value]="product.id">
+        {{ product.name }}
+      </option>
+    </select>
+  
+    <label>Batch Number:</label>
+    <input type="text" [(ngModel)]="batchNumber"/>
+  
+    <label>Price:</label>
+    <input type="number" [(ngModel)]="price"/>
+  
+    <button (click)="addBatch()">Add Batch</button>
+  
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </div>
+  
